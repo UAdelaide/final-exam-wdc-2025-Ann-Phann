@@ -12,3 +12,5 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 const PORT = 3000;
+
+app.listen(PORT, ())
