@@ -27,7 +27,7 @@ router.get('/login', async (req, res) => {
             id: user.user_id,
             username: user.username,
             role: user.role
-        }
+        };
 
     } catch (error) {
 
