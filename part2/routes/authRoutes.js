@@ -39,3 +39,12 @@ router.get('/login', async (req, res) => {
         return res.status(400).json({error: 'cannot login'});
     }
 });
+
+const checkLogin = (req, res) => {
+  console.log('Session:', req.session);
+  if (req.session.user) {
+    res.status(200).json({ loggedIn: true, user: req.session.user });
+  } else {
+    res.status(200).json({ loggedIn: false });
+  }
+};
