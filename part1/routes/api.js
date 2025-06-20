@@ -80,7 +80,10 @@ router.get('/api/walkers/summary', async (req, res) => {
                 u.username;
         `);
         res.json(rows);
-    cat
+    };
+    catch(error) {
+        
+    }
 })
 
 /**
