@@ -24,7 +24,9 @@ router.get('/login', async (req, res) => {
         // if exist
         const user = users[0];
         req.session.user = {
-            
+            id: user.user_id,
+            username: user.username,
+            role: user.role
         }
 
     } catch (error) {
