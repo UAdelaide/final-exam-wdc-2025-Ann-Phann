@@ -42,10 +42,10 @@ router.get('/login', async (req, res) => {
 
 router.get('/checkLogin', (req, res) => {
     console.log('Session:', req.session);
-    // if login --> return its 
+    // if login --> return its session data
     if (req.session.user) {
-        res.status(200).json({ loggedIn: true, user: req.session.user });
+        return res.status(200).json({ loggedIn: true, user: req.session.user });
     } else {
-        res.status(200).json({ loggedIn: false });
+        return res.status(200).json({ loggedIn: false });
     }
 });
