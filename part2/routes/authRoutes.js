@@ -6,5 +6,7 @@ router.get('/login', async (req, res) => {
     const {username, password} = req.body;
 
     // input validation
-    if (username )
+    if (!username || !password) {
+        res.status
+    }
 });
