@@ -39,52 +39,70 @@ router.get('/api/walkrequests/open', async(req,res) => {
         res.status(500).json({error: 'Falied to fetch walk request open.'});
     }
 });
-// Route 3: /api/walkers/summary
-router.get('/api/walkers/summary', async (req, res) => {
+// // Route 3: /api/walkers/summary
+// router.get('/api/walkers/summary', async (req, res) => {
+//   try {
+//     const [rows] = await db.query(`
+//         SELECT
+//             u.username AS walker_username,
+//             COALESCE(tr.total_ratings, 0) AS total_ratings,
+//             ROUND(COALESCE(tr.average_rating, NULL), 1) AS average_rating,
+//             COALESCE(cw.completed_walks, 0) AS completed_walks
+//         FROM
+//             Users u
+//         LEFT JOIN (
+//             SELECT
+//                 wa.walker_id,
+//                 COUNT(DISTINCT wr.request_id) AS completed_walks
+//             FROM
+//                 WalkApplications wa
+//             JOIN
+//                 WalkRequests wr ON wa.request_id = wr.request_id
+//             WHERE
+//                 wr.status = 'completed' AND wa.status = 'accepted'
+//             GROUP BY
+//                 wa.walker_id
+//         ) AS cw ON u.user_id = cw.walker_id
+//         LEFT JOIN (
+//             SELECT
+//                 wrates.walker_id,
+//                 COUNT(wrates.rating_id) AS total_ratings,
+//                 AVG(wrates.rating) AS average_rating
+//             FROM
+//                 WalkRatings wrates
+//             GROUP BY
+//                 wrates.walker_id
+//         ) AS tr ON u.user_id = tr.walker_id
+//         WHERE
+//             u.role = 'walker'
+//         ORDER BY
+//             u.username;
+//     `);
+//     res.json(rows);
+//   } catch (err) {
+//     console.error('Error fetching walker summary:', err);
+//     res.status(500).json({ error: 'Failed to retrieve walker summary.' });
+//   }
+// });
+
+app.get('/api/walkers/summary', async (req, res) => {
   try {
-    const [rows] = await db.query(`
-        SELECT
-            u.username AS walker_username,
-            COALESCE(tr.total_ratings, 0) AS total_ratings,
-            ROUND(COALESCE(tr.average_rating, NULL), 1) AS average_rating,
-            COALESCE(cw.completed_walks, 0) AS completed_walks
-        FROM
-            Users u
-        LEFT JOIN (
-            SELECT
-                wa.walker_id,
-                COUNT(DISTINCT wr.request_id) AS completed_walks
-            FROM
-                WalkApplications wa
-            JOIN
-                WalkRequests wr ON wa.request_id = wr.request_id
-            WHERE
-                wr.status = 'completed' AND wa.status = 'accepted'
-            GROUP BY
-                wa.walker_id
-        ) AS cw ON u.user_id = cw.walker_id
-        LEFT JOIN (
-            SELECT
-                wrates.walker_id,
-                COUNT(wrates.rating_id) AS total_ratings,
-                AVG(wrates.rating) AS average_rating
-            FROM
-                WalkRatings wrates
-            GROUP BY
-                wrates.walker_id
-        ) AS tr ON u.user_id = tr.walker_id
-        WHERE
-            u.role = 'walker'
-        ORDER BY
-            u.username;
-    `);
-    res.json(rows);
+    const [summary] = await db.execute(`SELECT user.username AS walker_username,
+      COUNT(r.rating_id) AS total_ratings,
+      ROUND(AVG(r.rating), 1) AS average_rating,
+      COUNT(CASE WHEN walk.status = 'completed' THEN 1 END) AS completed_walks
+      From Users user
+      LEFT JOIN WalkRatings r ON user.user_id = r.walker_id
+      LEFT JOIN WalkRequests walk ON r.request_id = walk.request_id
+      WHERE user.role = 'walker'
+      GROUP BY user.user_id;
+      `);
+    res.json(summary);
   } catch (err) {
-    console.error('Error fetching walker summary:', err);
-    res.status(500).json({ error: 'Failed to retrieve walker summary.' });
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch walk summary' });
   }
 });
-
 
 /**
 [
