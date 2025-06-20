@@ -28,6 +28,7 @@ router.get('/api/walkrequests/open', async(req,res) => {
             SELECT wr.request_id, d.name AS dog_name,
                     wr.requested_time, wr.duration_minutes,
                     wr.location, u.username
+            FROM
         `);
     } catch (error) {
         console.error('Error in fetching walkrequest open: ', error);
