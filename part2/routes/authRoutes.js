@@ -40,7 +40,7 @@ router.get('/login', async (req, res) => {
     }
 });
 
-(req, res) => {
+router.get('/checkLogin',(req, res) => {
   console.log('Session:', req.session);
   if (req.session.user) {
     res.status(200).json({ loggedIn: true, user: req.session.user });
