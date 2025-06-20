@@ -3,7 +3,7 @@ const path = require('path');
 require('dotenv').config();
 
 // use session
-const session = requ
+const session = require('express-session');
 const app = express();
 
 // Middleware
