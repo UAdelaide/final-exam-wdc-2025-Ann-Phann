@@ -21,6 +21,9 @@ router.get('/login', async (req, res) => {
             return res.status(400).json({error: 'Invalid Username or Password.'});
         }
 
+        // if exist --> exiitng user
+        const user = users[0];
+
     } catch (error) {
 
     }
