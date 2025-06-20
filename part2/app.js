@@ -13,8 +13,8 @@ app.use(express.static(path.join(__dirname, '/public')));
 // call session middleware
 app.use(session({
     secret: 'secretkey',
-    resave: false,
-    
+    resave: false, // Don't save session if unmodified
+
 }));
 
 // Routes
