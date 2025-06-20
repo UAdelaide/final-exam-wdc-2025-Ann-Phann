@@ -26,12 +26,14 @@ router.get('/api/walkrequests/open', async(req,res) => {
     try {
         const [rows] = await db.query(`
             SELECT wr.request_id, d.name AS dog_name,
-                    wr.request_time
+                    wr.requested_time, wr
         `);
     } catch (error) {
         console.error('Error in fetching walkrequest open: ', error);
         res.status(500).json({error: 'Falied to fetch walk request open.'})
     }
 });
+
+/*
 
 module.exports = router;
