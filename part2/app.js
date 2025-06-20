@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 require('dotenv').config();
 
-// use session
+// use session - put in first before any router can use sesson
 const session = require('express-session');
 const app = express();
 
