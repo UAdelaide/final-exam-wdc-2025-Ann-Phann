@@ -26,7 +26,8 @@ router.get('/api/walkrequests/open', async(req,res) => {
     try {
         const [rows] = await db.query(`
             SELECT wr.request_id, d.name
-        `)
+        `);
+        
     } catch (error) {
 
     }
