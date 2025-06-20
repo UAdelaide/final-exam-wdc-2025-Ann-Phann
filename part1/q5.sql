@@ -31,7 +31,8 @@ INSERT INTO Dogs (owner_id, name, size) VALUES
 -- Insert Five Walk Requests
 -- Request 1 for Max (owned by alice123)
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
-((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Max' AND u.username = 'alice123'), '2025-06-10 08:00:00', 30, 'Parklands', 'open');
+((SELECT d.dog_id FROM Dogs d
+JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Max' AND u.username = 'alice123'), '2025-06-10 08:00:00', 30, 'Parklands', 'open');
 
 -- Request 2 for Bella (owned by carol123)
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
