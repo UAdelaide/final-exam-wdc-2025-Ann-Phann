@@ -17,8 +17,7 @@ router.get('/login', async (req, res) => {
         `, [username, password]
         );
 
-        if (users.length > 0) {
-            const user = users[0];
+        if (users.length === 0) {
             
         }
 
