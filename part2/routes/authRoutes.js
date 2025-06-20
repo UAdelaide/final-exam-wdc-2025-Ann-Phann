@@ -30,6 +30,7 @@ router.get('/login', async (req, res) => {
         };
 
     } catch (error) {
-        console.error()
+        console.error('error during login: ', error);
+        return res.status(400).json
     }
 });
