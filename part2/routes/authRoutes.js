@@ -2,6 +2,6 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
-router.get('/login', (req, res) => {
-    
+router.get('/login', async (req, res) => {
+
 });
