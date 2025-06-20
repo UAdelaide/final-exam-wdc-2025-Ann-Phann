@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../models/db');
 
 router.get('/login', async (req, res) => {
-    const {username, password} = req.body;
+    const { username, password } = req.body;
 
     // input validation
     if (!username || !password) {
@@ -15,7 +15,9 @@ router.get('/login', async (req, res) => {
         const [users] = await db.query(`
             SELECT user_id, username, role FROM Users WHERE username = ? AND password_hash = ?
         `, [username, password]
-    );
+        );
+
+        if (users)
 
     } catch (error) {
 
