@@ -15,7 +15,7 @@
       );
       font-family: "Comic Sans MS", cursive;
       color: limegreen;
-      /* animation: blink 1s steps(2, start) infinite; */
+      animation: blink 1s steps(2, start) infinite;
     }
 
     @keyframes blink {
@@ -25,7 +25,7 @@
     }
 
     .hidden-button {
-      background-color: red;
+      background-color: transparent;
       border: none;
       color: transparent;
     }
@@ -43,7 +43,7 @@
     <div class="dog-container">
       <img :src="dogImage" alt="" width="300" />
       <p>Meet Sir Barkalot the Third - the loudest dog in the land.</p>
-      <button type="button" class="hidden-button" @click="getDog">click</button>
+      <button class="hidden-button" @click="getDog">click</button>
     </div>
   </div>
 
