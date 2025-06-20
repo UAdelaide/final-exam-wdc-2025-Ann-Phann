@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', apiRouter);
+app.use('/api', apiRouter);
 
 const PORT = 3000;
 

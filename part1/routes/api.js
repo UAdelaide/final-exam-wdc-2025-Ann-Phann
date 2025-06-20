@@ -20,3 +20,5 @@ router.get('/api/dogs', async (req, res) => {
         res.status(500).json({ error: 'Failed to retrieve dogs.' });
     }
 });
+
+module
