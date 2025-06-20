@@ -23,7 +23,7 @@ router.get('/login', async (req, res) => {
 
         // if exist
         const user = users[0];
-        req.session
+        req.session.user 
 
     } catch (error) {
 
