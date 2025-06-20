@@ -30,6 +30,6 @@ router.get('/login', async (req, res) => {
         };
 
     } catch (error) {
-
+        console.error()
     }
 });
