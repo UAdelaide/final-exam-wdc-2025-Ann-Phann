@@ -12,7 +12,7 @@ router.get('/login', async (req, res) => {
 
     try {
         // query the database to find the user
-        
+        const [users] = db.query()
 
     } catch (error) {
 
