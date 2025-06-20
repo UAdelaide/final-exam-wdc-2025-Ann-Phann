@@ -40,6 +40,8 @@ router.get('/api/walkrequests/open', async(req,res) => {
     }
 });
 
+router.get('/api/walkers/summary')
+
 /**
 [
   {
