@@ -7,6 +7,6 @@ router.get('/login', async (req, res) => {
 
     // input validation
     if (!username || !password) {
-        res.status
+        return res.status(400).json({error: ''})
     }
 });
