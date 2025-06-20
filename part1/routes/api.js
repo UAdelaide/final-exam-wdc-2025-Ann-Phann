@@ -11,7 +11,7 @@ router.get('/api/dogs', async (req, res) => {
                 u.username AS owner_username
             FROM
                 Dogs d
-            JOIN
+            INNER JOIN
                 Users u ON d.owner_id = u.user_id;
         `);
         sendSingleLineJson(res, rows);
