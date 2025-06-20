@@ -16,7 +16,7 @@ app.use(session({
     resave: false, // Don't save session if unmodified
     saveUninitialized: false, // Don't create session until something is stored
     cookie: {
-        maxAge: 1000*60*30;
+        maxAge: 1000*60*30 // half an hour
     }
 }));
 
