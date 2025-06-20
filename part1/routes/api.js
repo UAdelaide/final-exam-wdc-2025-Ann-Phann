@@ -14,7 +14,7 @@ router.get('/api/dogs', async (req, res) => {
             INNER JOIN
                 Users u ON d.owner_id = u.user_id;
         `);
-        sendSingleLineJson(res, rows);
+        res.j
     } catch (error) {
         console.error('Error fetching dogs:', error);
         res.status(500).json({ error: 'Failed to retrieve dogs.' });
