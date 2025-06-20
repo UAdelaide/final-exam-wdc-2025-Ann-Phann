@@ -79,6 +79,8 @@ router.get('/api/walkers/summary', async (req, res) => {
             ORDER BY
                 u.username;
         `);
+        res.json(rows);
+    cat
 })
 
 /**
