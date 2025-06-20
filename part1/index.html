@@ -166,7 +166,7 @@
                        placeholder="It's not 'woof', it's more specific. Maybe 'barkbarkwoof'?"
                        aria-label="Secret bark sequence input"
                        >
-                <button @click="checkBarkSequence" class="bg-red-500 text-white font-bold py-2 px-6 rounded mt-4 hover:bg-red-700 tiny-button unpredictable-shift">
+                <button type="button" @click="checkBarkSequence" class="bg-red-500 text-white font-bold py-2 px-6 rounded mt-4 hover:bg-red-700 tiny-button unpredictable-shift">
                     Unleash Insights
                 </button>
                 <p v-if="insightMessage" class="mt-4 fixed-text-size" :class="{'text-green-600': insightSuccess, 'text-red-600': !insightSuccess}">{{ insightMessage }}</p>
@@ -200,7 +200,7 @@
                 </p>
             </div>
 
-            <button class="super-far-away-button bg-gray-500 text-white tiny-button rounded px-3 py-1 hover:bg-gray-700 unpredictable-shift">
+            <button type="button" class="super-far-away-button bg-gray-500 text-white tiny-button rounded px-3 py-1 hover:bg-gray-700 unpredictable-shift">
                 Also Next Dog! (Just Kidding?)
             </button>
 
