@@ -41,7 +41,44 @@ router.get('/api/walkrequests/open', async(req,res) => {
 });
 
 router.get('/api/walkers/summary', async (req, res) => {
-    
+    router.get('/api/walkers/summary', async (req, res) => {
+    try {
+        const [rows] = await db.query(`
+            SELECT
+                u.username AS walker_username,
+                COALESCE(tr.total_ratings, 0) AS total_ratings,
+                COALESCE(tr.average_rating, NULL) AS average_rating,
+                COALESCE(cw.completed_walks, 0) AS completed_walks
+            FROM
+                Users u
+            LEFT JOIN (
+                SELECT
+                    wa.walker_id,
+                    COUNT(DISTINCT wr.request_id) AS completed_walks
+                FROM
+                    WalkApplications wa
+                JOIN
+                    WalkRequests wr ON wa.request_id = wr.request_id
+                WHERE
+                    wr.status = 'completed' AND wa.status = 'accepted'
+                GROUP BY
+                    wa.walker_id
+            ) AS cw ON u.user_id = cw.walker_id
+            LEFT JOIN (
+                SELECT
+                    wrates.walker_id,
+                    COUNT(wrates.rating_id) AS total_ratings,
+                    AVG(wrates.rating) AS average_rating
+                FROM
+                    WalkRatings wrates
+                GROUP BY
+                    wrates.walker_id
+            ) AS tr ON u.user_id = tr.walker_id
+            WHERE
+                u.role = 'walker'
+            ORDER BY
+                u.username;
+        `);
 })
 
 /**
