@@ -46,8 +46,8 @@ router.get('/checkLogin', (req, res) => {
     if (req.session.user) {
         res.status(200).json({ loggedIn: true, user: req.session.user });
     } else {
-        
+        // if not login
+        res.status(200).json({ loggedIn: false });
     }
-    // if not login
-    res.status(200).json({ loggedIn: false });
+
 });
