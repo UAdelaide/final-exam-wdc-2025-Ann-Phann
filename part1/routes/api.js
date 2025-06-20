@@ -40,7 +40,7 @@ router.get('/api/walkrequests/open', async(req,res) => {
     }
 });
 // Route 3: /api/walkers/summary
-app.get('/api/walkers/summary', async (req, res) => {
+router.get('/api/walkers/summary', async (req, res) => {
   try {
     const [rows] = await db.query(`
       SELECT
