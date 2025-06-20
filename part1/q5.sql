@@ -48,13 +48,15 @@ WHERE d.name = 'Bella' AND u.username = 'carol123'),
 -- Request 3 for Rocky (owned by carol123)
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
 ((SELECT d.dog_id FROM Dogs d
-JOIN Users u
+INNER JOIN Users u
 ON d.owner_id = u.user_id
-WHERE d.name = 'Rocky' AND u.username = 'carol123'), '2025-06-11 10:00:00', 60, 'City Park', 'open');
+WHERE d.name = 'Rocky' AND u.username = 'carol123'),
+'2025-06-11 10:00:00', 60, 'City Park', 'open');
 
 -- Request 4 for Daisy (owned by eveowner)
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
-((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Daisy' AND u.username = 'eveowner'), '2025-06-12 14:00:00', 30, 'Suburb Streets', 'open');
+((SELECT d.dog_id FROM Dogs d
+INNER JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Daisy' AND u.username = 'eveowner'), '2025-06-12 14:00:00', 30, 'Suburb Streets', 'open');
 
 -- Request 5 for Buddy (owned by alice123)
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
