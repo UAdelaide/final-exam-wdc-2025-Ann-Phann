@@ -30,7 +30,7 @@ router.get('/api/walkrequests/open', async(req,res) => {
         `);
     } catch (error) {
         console.error('Error in fetching walkrequest open: ', error);
-        res.status(500).json({error: 'Falied to fetch walk request open.'})
+        res.status(500).json({error: 'Falied to fetch walk request open.'});
     }
 });
 
