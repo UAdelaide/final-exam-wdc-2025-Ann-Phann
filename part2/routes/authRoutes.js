@@ -4,4 +4,4 @@ const db = require('../models/db');
 
 router.get('/login', (req, res) => {
     
-})
+});
