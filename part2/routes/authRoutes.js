@@ -7,7 +7,7 @@ router.get('/login', async (req, res) => {
 
     // input validation
     if (!username || !password) {
-        return res.status(400).json({error: 'Username and Password are required.'})
+        return res.status(400).json({error: 'Username and Password are required.'});
     }
 
     try {
