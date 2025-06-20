@@ -39,7 +39,9 @@ WHERE d.name = 'Max' AND u.username = 'alice123'),
 
 -- Request 2 for Bella (owned by carol123)
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
-((SELECT d.dog_id FROM Dogs d JOIN Users u ON d.owner_id = u.user_id WHERE d.name = 'Bella' AND u.username = 'carol123'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted');
+((SELECT d.dog_id FROM Dogs d
+JOIN Users u
+ON d.owner_id = u.user_id WHERE d.name = 'Bella' AND u.username = 'carol123'), '2025-06-10 09:30:00', 45, 'Beachside Ave', 'accepted');
 
 -- Request 3 for Rocky (owned by carol123)
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
