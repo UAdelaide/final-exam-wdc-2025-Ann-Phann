@@ -12,7 +12,9 @@ router.get('/login', async (req, res) => {
 
     try {
         // query the database to find the user
-        const [users] = db.query()
+        const [users] = await db.query(`
+            SELECT 
+        `);
 
     } catch (error) {
 
