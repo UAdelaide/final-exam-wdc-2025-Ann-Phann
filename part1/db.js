@@ -6,8 +6,6 @@ const connection = mysql.createPool({
     user: 'root',
     password: '',
     multipleStatements: true
-    //database: 'pokemonDB'
-
   }).promise();
 
   // connection.connect((err) => {
