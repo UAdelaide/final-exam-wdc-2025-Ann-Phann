@@ -2,7 +2,7 @@
 const mysql = require('mysql2');
 
 
-const connection = mysql.createPool({
+const db = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '',
@@ -14,4 +14,4 @@ const connection = mysql.createPool({
   //   console.log('✅ Connected to MySQL server!');
   // });
 
-module.exports = connection; // export db
+module.exports = db; // export db
