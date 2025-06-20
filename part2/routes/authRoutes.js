@@ -28,6 +28,11 @@ router.get('/login', async (req, res) => {
             username: user.username,
             role: user.role
         };
+        res.status(200).json({
+            message: 'Login successfully',
+            loggedIn: true,
+            user: req.session.user
+        });
 
     } catch (error) {
         console.error('error during login: ', error);
