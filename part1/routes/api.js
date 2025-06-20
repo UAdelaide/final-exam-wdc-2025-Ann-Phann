@@ -28,7 +28,7 @@ router.get('/api/walkrequests/open', async(req,res) => {
             SELECT wr.request_id, d.name AS dog_name
         `)
     } catch (error) {
-        console.error('Error in fetching walkrequest open.')
+        console.error('Error in fetching walkrequest open: ', error)
     }
 })
 
