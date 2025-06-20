@@ -65,4 +65,6 @@ WHERE d.name = 'Daisy' AND u.username = 'eveowner'),
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
 ((SELECT d.dog_id FROM Dogs d
 INNER JOIN Users u
-ON d.owner_id = u.user_id WHERE d.name = 'Buddy' AND u.username = 'alice123'), '2025-06-13 16:00:00', 45, 'Dog Park East', 'open');
+ON d.owner_id = u.user_id
+WHERE d.name = 'Buddy' AND u.username = 'alice123'),
+'2025-06-13 16:00:00', 45, 'Dog Park East', 'open');
