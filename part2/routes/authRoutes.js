@@ -14,7 +14,8 @@ router.get('/login', async (req, res) => {
         // query the database to find the user
         const [users] = await db.query(`
             SELECT user_id, username, role FROM Users WHERE username = ? AND password_hash = ?
-        `);
+        `, [username, password]
+    );
 
     } catch (error) {
 
