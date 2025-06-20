@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/api/dogs', async (req, res) => {
     try {
-        const [rows] = await pool.execute(`
+        const [rows] = await db.execute(`
             SELECT
                 d.name AS dog_name,
                 d.size,
