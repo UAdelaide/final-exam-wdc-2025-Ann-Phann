@@ -13,4 +13,6 @@ app.use(cookieParser());
 
 const PORT = 3000;
 
-app.listen(PORT, ())
+app.listen(PORT, () => {
+    console.log('Server running')
+})
