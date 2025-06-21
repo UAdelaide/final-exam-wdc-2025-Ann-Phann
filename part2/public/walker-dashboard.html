@@ -75,7 +75,7 @@
                 body: JSON.stringify({ walker_id: user })
                 });
                 const result = await response.json();
-                console.log(result.)
+                console.log(result.cur)
 
                 if (!response.ok) throw new Error(result.error || 'Application failed');
                 message.value = result.message;
