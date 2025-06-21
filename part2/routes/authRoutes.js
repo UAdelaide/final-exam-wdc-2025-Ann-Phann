@@ -55,7 +55,7 @@ router.get('/checkLogin', (req, res) => {
 router.post('/logout', (req, res) => {
   req.session.destroy((err) => {
     if (err) return res.status(500).json({ error: 'Logout failed' });
-    // clear the session cookie
+    // clear the session cookie from client browser
     res.clearCookie('connect.sid');
     res.status(200).json({ message: 'Logged out' });
   });
