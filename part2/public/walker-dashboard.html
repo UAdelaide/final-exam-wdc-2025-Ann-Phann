@@ -66,12 +66,11 @@
             try {
                 // add this to get the current user
                 const currentUser = await getCurrentUser();
-                console.log("current user in front: ", currentUser.id);
-
                 if (!currentUser) {
                     error.value = 'Please login to apply.';
                     return;
                 }
+                console.log("current user in front: ", currentUser.id);
 
                 const response = await fetch(`/api/walks/${requestId}/apply`, {
                 method: 'POST',
