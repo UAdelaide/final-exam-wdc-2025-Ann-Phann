@@ -112,7 +112,7 @@
                     const res = await fetch('/api/users/me', { credentials: 'include' });
                     if (!res.ok) throw new Error('Not logged in');
                     const data = await res.json();
-                    return data; // includes id, username, role
+                    return data; // includes {id, username, role}
                 } catch (err) {
                     console.error('Error fetching user:', err);
                     return null;
