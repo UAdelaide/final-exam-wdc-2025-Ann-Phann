@@ -40,7 +40,7 @@ router.post('/:id/apply', async (req, res) => {
   const requestId = req.params.id;
   const { walker_id } = req.body;
 
-  console.log()
+  console.log("walker id apply: ", walker_id);
   try {
     await db.query(`
       INSERT INTO WalkApplications (request_id, walker_id)
