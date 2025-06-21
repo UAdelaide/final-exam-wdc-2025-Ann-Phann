@@ -44,35 +44,35 @@
         </section>
 
         <section id="dog-list" class="dog-list">
-  <h2>All Registered Dogs</h2>
+            <h2>All Registered Dogs</h2>
 
-  <div v-if="dogs.length === 0">
-    <p>Loading dogs...</p>
-  </div>
+            <div v-if="dogs.length === 0">
+                <p>Loading dogs...</p>
+            </div>
 
-  <table v-else class="dog-table">
-    <thead>
-      <tr>
-        <th>Photo</th>
-        <th>Dog ID</th>
-        <th>Name</th>
-        <th>Size</th>
-        <th>Owner ID</th>
-        <th>Owner Username</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="dog in dogs" :key="dog.dog_id">
-        <td><img :src="dog.photo_url" alt="Dog photo" class="dog-photo" /></td>
-        <td>{{ dog.dog_id }}</td>
-        <td>{{ dog.dog_name }}</td>
-        <td>{{ dog.size }}</td>
-        <td>{{ dog.owner_id }}</td>
-        <td>{{ dog.owner_username }}</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
+            <table v-else class="dog-table">
+                <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Dog ID</th>
+                    <th>Name</th>
+                    <th>Size</th>
+                    <th>Owner ID</th>
+                    <th>Owner Username</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="dog in dogs" :key="dog.dog_id">
+                    <td><img :src="dog.photo_url" alt="Dog photo" class="dog-photo" /></td>
+                    <td>{{ dog.dog_id }}</td>
+                    <td>{{ dog.dog_name }}</td>
+                    <td>{{ dog.size }}</td>
+                    <td>{{ dog.owner_id }}</td>
+                    <td>{{ dog.owner_username }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
 
 
     </div>
