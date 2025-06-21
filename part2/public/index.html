@@ -72,11 +72,7 @@
 
                 const data = await response.json();
 
-                if (data.success) {
-                    console.log("login successfully!");
-                } else {
-                    this.errorMessage = data.message || "Login failed";
-                }
+                if (data.logged)
             } catch (error) {
                 this.errorMessage = 'Server error';
             }
