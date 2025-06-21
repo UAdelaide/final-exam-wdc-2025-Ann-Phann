@@ -64,7 +64,7 @@
             try {
                 // add this to get the current user
                 const currentUser = await getCurrentUser();
-                console.log("current user in front: ", currentUser);
+                console.log("current user in front: ", currentUser.id);
 
                 if (!currentUser) {
                     error.value = 'Please login to apply.';
