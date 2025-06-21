@@ -77,6 +77,20 @@
             }
             }
 
+            // NEW: add logout function
+            async function logout() {
+                fetch('/auth/logout', {
+                    method: 'POST',
+                    credentials: 'include'
+                })
+                .then(() => {
+                    window.location.href = '/'; // redirect to login page
+                })
+                .catch(() => {
+                    console.log('Logout failed');
+                });
+            }
+            
             onMounted(() => {
             loadWalkRequests();
             });
