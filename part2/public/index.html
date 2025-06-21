@@ -59,7 +59,8 @@
         async handleLogin() {
             try {
                 const response = await fetch("http://localhost:8080/login", {
-                    method: P
+                    method: 'POST',
+                    headers: {'Content-Type'}
                 });
             }
         }
