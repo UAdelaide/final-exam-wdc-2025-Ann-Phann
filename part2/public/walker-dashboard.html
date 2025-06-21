@@ -64,6 +64,8 @@
             try {
                 // add this to get the current user
                 const currentUser = await getCurrentUser();
+                console.log(currentUser);
+                
                 if (!currentUser) {
                     error.value = 'Please login to apply.';
                     return;
@@ -75,7 +77,7 @@
                 body: JSON.stringify({ walker_id: user })
                 });
                 const result = await response.json();
-                
+
 
                 if (!response.ok) throw new Error(result.error || 'Application failed');
                 message.value = result.message;
