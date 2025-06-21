@@ -29,5 +29,26 @@ app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 app.use('/auth', authRouter);
 
+// Route protection middleware
+function requireLogin(role) {
+  return (req, res, next) => {
+    if (!req.session.user) return res.redirect('/');
+    if (role && req.session.user.role !== role) return res.status(403).send('Forbidden');
+    next();
+  };
+}
+
+// Protect owner dashboard
+app.get('/owner-dashboard.html', requireLogin('owner'), (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/owner-dashboard.html'));
+});
+
+// Protect walker dashboard
+app.get('/walker-dashboard.html', requireLogin('walker'), (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/walker-dashboard.html'));
+});
+
+
+
 // Export the app instead of listening here
 module.exports = app;
