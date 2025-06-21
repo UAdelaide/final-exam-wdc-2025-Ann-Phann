@@ -120,7 +120,11 @@
 
             // NEW: add logout function
             async function logout() {
-                fetch('/auth/logout')
+                fetch('/auth/logout', {
+                    method: 'POST',
+                    credentials: 'include'
+                })
+                .then
             }
 
             onMounted(() => {
