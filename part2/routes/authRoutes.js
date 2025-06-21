@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
-router.post('/', async (req, res) => {
+router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
     // input validation
@@ -52,7 +52,7 @@ router.get('/checkLogin', (req, res) => {
 
 });
 
-router.post('/', (req, res) => {
+router.post('/logout', (req, res) => {
   req.session.destroy((err) => {
     if (err) return res.status(500).json({ error: 'Logout failed' });
     res.clearCookie('connect.sid');
