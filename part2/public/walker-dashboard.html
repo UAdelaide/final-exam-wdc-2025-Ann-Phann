@@ -95,8 +95,16 @@
 
             // NEW: question 16: add function to get current user
             async function getCurrentUser() {
-                
-            }
+                try {
+                    const res = await fetch('/api/users/me', { credentials: 'include' });
+                    if (!res.ok) throw new Error('Not logged in');
+                    const data = await res.json();
+                    return data.user; // includes id, username, role
+                } catch (err) {
+                    console.error('Error fetching user:', err);
+                    return null;
+                }
+                }
 
             onMounted(() => {
             loadWalkRequests();
