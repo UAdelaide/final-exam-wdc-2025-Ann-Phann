@@ -1,3 +1,7 @@
+const express = require('express');
+const db = require('../db');
+const router = express.Router();
+
 // 1. /api/dogs
 router.get('/api/dogs', async (req, res) => {
     try {
@@ -17,3 +21,6 @@ router.get('/api/dogs', async (req, res) => {
         res.status(500).json({ error: 'Failed to retrieve dogs.' });
     }
 });
+
+
+module.exports = router;
