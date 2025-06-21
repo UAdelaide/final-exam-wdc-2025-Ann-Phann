@@ -65,7 +65,8 @@
                 // add this to get the current user
                 const currentUser = await getCurrentUser();
                 if (!currentUser) {
-                    return 
+                    error.value = 'Please login'
+                    return;
                 }
 
                 const res = await fetch(`/api/walks/${requestId}/apply`, {
