@@ -127,9 +127,9 @@
                 .then(() => {
                     window.location.href = '/'; // redirect to login page
                 })
-                .catch(() =>
+                .catch(() => {
                     console.log('Logout failed');
-            }
+                }};
 
             onMounted(() => {
             loadWalks();
