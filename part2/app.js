@@ -24,11 +24,12 @@ app.use(session({
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
 const authRouter = require('./routes/authRoutes');
-const myDogRouter = require('./routes/')
+const myDogRouter = require('./routes/myDogRoutes');
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 app.use('/auth', authRouter);
+app.use('/dog')
 
 // Route protection middleware
 function requireLogin(role) {
