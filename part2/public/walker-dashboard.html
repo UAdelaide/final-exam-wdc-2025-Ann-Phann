@@ -76,8 +76,9 @@
                 const response = await fetch(`/api/walks/${requestId}/apply`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ walker_id: currentUser.id }),
-                credentials: 'include'
+                credentials: 'include',  // ✅ include cookie for auth
+                body: JSON.stringify({ walker_id: currentUser.id })
+          
                 });
                 const result = await response.json();
 
