@@ -78,7 +78,7 @@
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',  // ✅ include cookie for auth
                 body: JSON.stringify({ walker_id: currentUser.id })
-          
+
                 });
                 const result = await response.json();
 
@@ -97,7 +97,7 @@
             async function logout() {
                 fetch('/auth/logout', {
                     method: 'POST',
-                    credentials: 'include'
+                    credentials: 'include' // to clear session cookie
                 })
                 .then(() => {
                     window.location.href = '/'; // redirect to login page
