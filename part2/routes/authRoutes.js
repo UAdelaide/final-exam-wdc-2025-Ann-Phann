@@ -51,3 +51,5 @@ router.get('/checkLogin', (req, res) => {
     }
 
 });
+
+module.exports = router;
