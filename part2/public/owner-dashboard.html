@@ -124,7 +124,9 @@
                     method: 'POST',
                     credentials: 'include'
                 })
-                .then
+                .then(() => {
+                    window.location.href = '/'
+                })
             }
 
             onMounted(() => {
