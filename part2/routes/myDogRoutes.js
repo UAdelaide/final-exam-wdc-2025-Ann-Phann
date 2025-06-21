@@ -4,6 +4,6 @@ const db = require('../models/db');
 
 router.get('/myDog', async (req, res) => {
     const [dogList] = db.query(`
-        SELECT
+        SELECT name AS 
     `)
 });
