@@ -143,9 +143,20 @@
             }
 
             // NEW: add logic to get dog list
-            async func
+            const myDogs = ref([]);
+
+            async function loadMyDogs() {
+            try {
+                const res = await fetch('/api/dogs/my-dogs', { credentials: 'include' });
+                myDogs.value = await res.json();
+            } catch {
+                error.value = 'Could not load dog list';
+            }
+            }
+
             onMounted(() => {
             loadWalks();
+            
             });
 
             return {
