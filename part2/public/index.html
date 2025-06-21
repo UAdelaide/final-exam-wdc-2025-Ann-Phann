@@ -78,6 +78,8 @@
                     } else if (data.user.role === "walker") {
                         window.location.href = 'walker-dashboard.html';
                     }
+                } else {
+                    this.errorMessage = data.message
                 }
             } catch (error) {
                 this.errorMessage = 'Server error';
