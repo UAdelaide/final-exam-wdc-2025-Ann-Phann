@@ -53,7 +53,7 @@
             async function loadWalkRequests() {
             try {
                 const res = await fetch('/api/walks',
-                    {credentials}
+                    {credentials:"include"} // NEW: add this 
                 );
                 if (!res.ok) throw new Error('Failed to load walk requests');
                 walks.value = await res.json();
