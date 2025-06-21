@@ -31,7 +31,8 @@ app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 app.use('/auth', authRouter);
 app.use('/dog', myDogRouter);
-app.use()
+app.use('allDog', registeredDog);
+
 // Route protection middleware
 function requireLogin(role) {
   return (req, res, next) => {
