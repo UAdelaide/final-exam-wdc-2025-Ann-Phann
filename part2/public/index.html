@@ -76,6 +76,9 @@
             errorMessage: ''
         };
       },
+      mounted() {
+        this.fetchDogs()
+      }
 
       methods: {
         async handleLogin() {
