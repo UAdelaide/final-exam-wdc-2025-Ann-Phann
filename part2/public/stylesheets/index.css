@@ -1,0 +1,52 @@
+#login {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#login form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+#login form div {
+  display: flex;
+  flex-direction: column;
+}
+
+#login label {
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+
+#login input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#login button {
+  padding: 0.75rem;
+  background-color: #3498db;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#login button:hover {
+  background-color: #2980b9;
+}
+
+#login [role="alert"] {
+  color: red;
+  font-size: 0.9rem;
+  text-align: center;
+}
