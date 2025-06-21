@@ -79,7 +79,7 @@
                         window.location.href = 'walker-dashboard.html';
                     }
                 } else {
-                    this.errorMessage = data.message
+                    this.errorMessage = data.message || 'Login failed';
                 }
             } catch (error) {
                 this.errorMessage = 'Server error';
