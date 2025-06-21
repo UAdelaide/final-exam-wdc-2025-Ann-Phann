@@ -104,7 +104,28 @@
             } catch (error) {
                 this.errorMessage = 'Server error';
             }
+        },
+        async fetchDogs() {
+            try {
+            const response = await fetch('/api/dogs');
+            const data = await response.json();
+
+            // Add a random photo to each dog
+            const withPhotos = await Promise.all(
+                data.map(async (dog) => {
+                const photoRes = await fetch('https://dog.ceo/api/breeds/image/random');
+                const photoData = await photoRes.json();
+                return { ...dog, photo_url: photoData.message };
+                })
+            );
+
+            this.dogs = withPhotos;
+            } catch (error) {
+            console.error('Failed to load dogs:', error);
+            }
         }
+
+
       }
     }).mount('#app');
   </script>
