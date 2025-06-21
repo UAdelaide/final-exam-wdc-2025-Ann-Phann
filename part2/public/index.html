@@ -72,8 +72,10 @@
                 if (data.success) {
                     console.log("login successfully!");
                 } else {
-                    this.errorMessage = data.message ||
+                    this.errorMessage = data.message || "Login failed";
                 }
+            } catch (error) {
+                this
             }
         }
       }
