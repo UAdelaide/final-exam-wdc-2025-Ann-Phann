@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
+// Question 17
 // 1. /api/dogs
 router.get('/', async (req, res) => {
     try {
