@@ -21,7 +21,9 @@
     <form @submit.prevent="handleLogin">
       <div>
         <label for="username">Username</label>
-        <input type="text" id="username" name="username">
+        <input type="text"
+                id="username" name="username"
+                v-model="username">
       </div>
     </form>
   </section>
