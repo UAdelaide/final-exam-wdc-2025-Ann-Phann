@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
-router.post('/login', async (req, res) => {
+router.get('/login', async (req, res) => {
     const { username, password } = req.body;
 
     // input validation
@@ -53,3 +53,4 @@ router.get('/checkLogin', (req, res) => {
 });
 
 module.exports = router;
+
