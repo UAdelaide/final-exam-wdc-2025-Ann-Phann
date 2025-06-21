@@ -25,12 +25,13 @@ const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
 const authRouter = require('./routes/authRoutes');
 const myDogRouter = require('./routes/myDogRoutes');
+const registeredDog = require('./routes/registeredDogs');
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 app.use('/auth', authRouter);
 app.use('/dog', myDogRouter);
-
+app.use()
 // Route protection middleware
 function requireLogin(role) {
   return (req, res, next) => {
