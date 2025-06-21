@@ -15,33 +15,10 @@
 
     <!-- <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>
     <a href="walker-dashboard.html" class="btn btn-outline-success">Walker Dashboard</a> -->
-  </div>
 
-  <section id="login">
-    <form @submit.prevent="handleLogin">
-        <div>
-            <label for="username">Username</label>
-            <input  type="text"
-                    id="username"
-                    name="username"
-                    v-model="username"
-                    required
-            >
-        </div>
-        <div>
-            <label for="password">Password</label>
-            <input  type="text"
-                    id="password"
-                    name="password"
-                    v-model="password"
-                    required
-            >
-        </div>
+    </div>
 
-        <button type="submit" aria-label="submit login form">Login</button>
-        <p v-if="errorMessage" role="alert">{{ errorMessage }}</p>
-    </form>
-  </section>
+
 
   <script>
     const { createApp } = Vue;
