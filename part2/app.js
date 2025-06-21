@@ -29,7 +29,7 @@ const myDogRouter = require('./routes/myDogRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 app.use('/auth', authRouter);
-app.use('/dog')
+app.use('/dog', myDogRouter);
 
 // Route protection middleware
 function requireLogin(role) {
