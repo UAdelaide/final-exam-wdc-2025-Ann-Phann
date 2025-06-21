@@ -73,7 +73,9 @@
                 const data = await response.json();
 
                 if (data.loggedIn) {
-                    if (data.user.)
+                    if (data.user.role === "owner") {
+                        window.location.href = 
+                    }
                 }
             } catch (error) {
                 this.errorMessage = 'Server error';
