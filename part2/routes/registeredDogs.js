@@ -11,7 +11,6 @@ router.get('/', async (req, res) => {
                 d.name AS dog_name,
                 d.size,
                 d.owner_id,
-                
             FROM
                 Dogs d
             INNER JOIN
