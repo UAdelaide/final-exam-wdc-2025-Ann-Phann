@@ -42,6 +42,25 @@
                 <p v-if="errorMessage" role="alert">{{ errorMessage }}</p>
             </form>
         </section>
+
+        <section id="dog-list" class="dog-list">
+        <h2>All Registered Dogs</h2>
+
+        <div v-if="dogs.length === 0">
+            <p>Loading dogs...</p>
+        </div>
+
+        <div v-else class="dog-cards">
+            <div class="dog-card" v-for="dog in dogs" :key="dog.dog_id">
+            <img :src="dog.photo_url" alt="Dog Photo" class="dog-photo" />
+            <p><strong>ID:</strong> {{ dog.dog_id }}</p>
+            <p><strong>Name:</strong> {{ dog.dog_name }}</p>
+            <p><strong>Size:</strong> {{ dog.size }}</p>
+            <p><strong>Owner:</strong> {{ dog.owner_username }} (ID: {{ dog.owner_id }})</p>
+            </div>
+        </div>
+        </section>
+
     </div>
 
 
