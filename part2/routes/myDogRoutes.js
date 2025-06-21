@@ -9,8 +9,13 @@ router.get('/myDog', async (req, res) => {
 
     const ownerId = req.session.user.id;
 
+    try {
+        const [dogs] = await db.query('SELECT dog_id, name FROM Dogs WHERE owner_id = ?', [ownerId]);
+        res.status(200).json(dogs);
+    } catch (err) {
+        console.error('Error fetching dogs:', err);
+        res.status(500).json({ error: 'Failed to retrieve dog list' });
+    }
+    });
 
-    const [dogList] = db.query(`
-        SELECT dog_id, name FROM Dogs WHERE owner_id = ?
-    `, [ownerId]);
-});
+module.exports = router;
